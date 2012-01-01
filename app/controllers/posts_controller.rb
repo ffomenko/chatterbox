@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     if @post.save
-      redirect_to(posts_path, :notice => 'Post was successfully created.')
+      redirect_to(posts_path, :notice => 'Post was successfully added.')
     else
       render :action => "new"
     end

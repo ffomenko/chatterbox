@@ -1,5 +1,5 @@
 Feature: View Posts
-  In order to see the watch is happening
+  In order to see what is happening
   As a User of Chatterbox
   I want to see existing posts displayed in reverse chronological order Post Content, Poster Name, and when it was Posted calculated from now
 
