@@ -7,8 +7,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="main-page">
+  <div id="chatter-box-header"><span id="chatter">Chatter</span><span id="box">Box</span></div>
+  <div id="content"><%= yield %></div>
+</div>
 </body>
 </html>

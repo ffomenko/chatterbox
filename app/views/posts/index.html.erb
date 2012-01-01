@@ -1,25 +1,8 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Poster</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p>Add a <%= link_to 'new post', new_post_path %></p>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.poster %></td>
-    <td><%= post.body %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <div class="post">
+      <div class="post-body"><%= post.body %></div>
+      <div class="post-signature"><%= post_signature(post) %></div>
+    </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>

@@ -18,6 +18,8 @@
 # You may also need to add gem dependencies on your factory of choice in <tt>config/environments/cucumber.rb</tt>
 
 require 'pickle/world'
+require 'factory_girl'
+
 # Example of configuring pickle:
 #
 # Pickle.configure do |config|

@@ -1,15 +1,28 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the PostsHelper. For example:
-#
-# describe PostsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe PostsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "post_signature" do
+
+    context "for post with created_at set" do
+
+      it "returns string with post age from Time.now and poster" do
+        post = Factory.build(:post, :poster => "Fedor", :created_at => Time.now)
+        helper.should_receive(:time_ago_in_words).with(post.created_at).and_return("less than a minute")
+        helper.post_signature(post).should == "Posted less than a minute ago by Fedor."
+      end
+
+    end
+
+    context "for post with nil created_at set" do
+
+      it "returns empty string" do
+        post = Factory.build(:post, :poster => "Fedor", :created_at => nil)
+        helper.post_signature(post).should == ""
+      end
+
+    end
+
+  end
+
 end
