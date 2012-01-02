@@ -1,12 +1,31 @@
-Then /^I should see posts displayed in reverse chronological order$/ do
-  @old_post = model("post: \"old_post\"")
-  @fresh_post = model("post: \"fresh_post\"")
-  page.body.should =~ /#{@fresh_post.body}.*#{@old_post.body}/m
+Then /^I should see "([^"]*)" followed by "([^"]*)"$/ do |post1, post2|
+  p1 = model("post: \"#{post1}\"")
+  p2  = model("post: \"#{post2}\"")
+  page.body.should =~ /#{p1.body}.*#{p2.body}/m
 end
 
-Then /^each post should show body with correct signature$/ do
-  page.body.should =~ /#{@fresh_post.body}.*Posted less than a minute ago by Sofia/m
-  page.body.should =~ /#{@old_post.body}.*Posted 1 day ago by Fedor/m
+Then /^I should see "([^"]*)" body followed by "([^"]*)"$/ do |post, signature|
+  p = model("post: \"#{post}\"")
+  page.body.should =~ /#{p.body}.*#{signature}/m
+end
+
+Given /^user "([^"]*)" is on post index page$/ do |user|
+  using_session(user) do
+    step %{I am on post index page}
+  end
+end
+
+When /^"([^"]*)" adds a new post with poster: "([^"]*)", body: "([^"]*)"$/ do |user, poster, body|
+  using_session(user) do
+    step %{I follow "new post"}
+    step %{I fill in "Poster" with "#{poster}"}
+    step %{I fill in "Body" with "#{body}"}
+    step %{I press "add post"}
+  end
+end
+
+When /^I should see "([^"]*)" followed by "([^"]*)" without refreshing the page$/ do |body, signature|
+  page.body.should =~ /#{body}.*#{signature}/m
 end
 
 

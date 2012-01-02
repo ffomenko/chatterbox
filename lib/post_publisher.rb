@@ -1,5 +1,3 @@
-
-
 module PostPublisher
 
   Pusher.app_id = '12846'
