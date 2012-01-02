@@ -35,21 +35,22 @@ describe PostsController do
 
     end
 
-    #describe "with invalid params" do
-    #  it "assigns a newly created but unsaved post as @post" do
-    #    # Trigger the behavior that occurs when invalid params are submitted
-    #    Post.any_instance.stub(:save).and_return(false)
-    #    post :create, :post => {}
-    #    assigns(:post).should be_a_new(Post)
-    #  end
-    #
-    #  it "re-renders the 'new' template" do
-    #    # Trigger the behavior that occurs when invalid params are submitted
-    #    Post.any_instance.stub(:save).and_return(false)
-    #    post :create, :post => {}
-    #    response.should render_template("new")
-    #  end
-    #end
+    describe "with invalid params" do
+
+      before do
+        @invalid_post_attributes = Factory.attributes_for(:invalid_post)
+      end
+
+      it "assigns a newly created but unsaved post as @post" do
+        post :create, :post => @invalid_post_attributes
+        assigns(:post).should be_a_new(Post)
+      end
+
+      it "re-renders the 'new' template" do
+        post :create, :post => @invalid_post_attributes
+        response.should render_template("new")
+      end
+    end
   end
 
 end
