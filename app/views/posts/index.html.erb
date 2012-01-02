@@ -2,9 +2,9 @@
 
 <p>Add a <%= link_to 'new post', new_post_path %></p>
 
-<% @posts.each do |post| %>
-    <div class="post">
-      <div class="post-body"><%= post.body %></div>
-      <div class="post-signature"><%= post_signature(post) %></div>
-    </div>
-<% end %>
+<div id="posts">
+  <%= render :partial => "post", :collection => @posts %>
+</div>
+
+<script src="http://js.pusherapp.com/1.10/pusher.min.js" type="text/javascript"></script>
+<%= javascript_include_tag 'posts' %>

@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.10'
 gem 'pg'
 gem 'thin'
+gem 'jquery-rails'
+gem 'pusher'
 
 group :test, :development do
   gem 'sqlite3'

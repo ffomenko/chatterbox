@@ -28,7 +28,8 @@ describe PostsController do
 
     describe "with valid params" do
 
-      it "creates a new Post and redirects to index" do
+      it "creates a new Post, publishes it and redirects to index" do
+        controller.should_receive(:publish_post_create).with(an_instance_of(Post))
         expect { post :create, :post => Factory.attributes_for(:post) }.to change(Post, :count).by(1)
         response.should redirect_to(posts_path)
       end
