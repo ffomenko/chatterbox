@@ -47,7 +47,8 @@ describe PostsController do
         assigns(:post).should be_a_new(Post)
       end
 
-      it "re-renders the 'new' template" do
+      it "does not publish post and re-renders the 'new' template" do
+        controller.should_not_receive(:publish_post_create)
         post :create, :post => @invalid_post_attributes
         response.should render_template("new")
       end
