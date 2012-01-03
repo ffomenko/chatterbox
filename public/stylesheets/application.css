@@ -33,3 +33,7 @@ body {
 .post .post-signature {
     margin-top:20px;
 }
+
+label {
+    display: block;
+}
