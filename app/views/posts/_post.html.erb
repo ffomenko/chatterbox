@@ -1,5 +1,7 @@
 <div class="post">
   <div class="post-body"><%= post.body %></div>
-  <%= image_tag post.image.url(:medium) %>
+  <% if post.image.exists? %>
+      <%= image_tag post.image.url(:medium) %>
+  <% end %>
   <div class="post-signature"><%= post_signature(post) %></div>
 </div>

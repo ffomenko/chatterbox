@@ -10,7 +10,11 @@ Then /^I should see "([^"]*)" body followed by "([^"]*)"$/ do |post, signature|
 end
 
 Then /^I should see image "([^"]*)"$/ do |file|
-  page.body.should have_xpath("//img[contains(@src, \"#{file}\")]")
+  page.body.should have_xpath("//div[@class='post']//img[contains(@src, \"#{file}\")]")
+end
+
+Then /^I should not see missing image$/ do
+  page.body.should_not have_xpath("//div[@class='post']//img")
 end
 
 Given /^user "([^"]*)" is on post index page$/ do |user|

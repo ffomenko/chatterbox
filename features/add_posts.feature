@@ -11,6 +11,7 @@ Feature: Add Posts
     And I press "add post"
     Then I should see "Post was successfully added."
     And I should see "Let us stop Noosphere pollution"
+    And I should not see missing image
 
   Scenario: Adding New post without poster and body
     Given I am on post index page
