@@ -9,11 +9,20 @@ Then /^I should see "([^"]*)" body followed by "([^"]*)"$/ do |post, signature|
   page.body.should =~ /#{p.body}.*#{signature}/m
 end
 
+Then /^I should see image "([^"]*)"$/ do |file|
+  page.body.should have_xpath("//img[contains(@src, \"#{file}\")]")
+end
+
 Given /^user "([^"]*)" is on post index page$/ do |user|
   using_session(user) do
     step %{I am on post index page}
   end
 end
+
+Given /^I attach image "([^"]*)"$/ do |file|
+  attach_file('Image', File.expand_path("#{Rails.root}/features/fixtures/images/#{file}"))
+end
+
 
 When /^"([^"]*)" adds a new post with poster: "([^"]*)", body: "([^"]*)"$/ do |user, poster, body|
   using_session(user) do

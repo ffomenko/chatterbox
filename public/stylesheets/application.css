@@ -27,7 +27,7 @@ body {
 .post {
     border-top: solid 2px #d3d3d3;
     padding-top: 10px;
-    height: 200px;
+    min-height: 200px;
 }
 
 .post .post-signature {

@@ -1,5 +1,5 @@
 Feature: Add Posts
-  In order let others know what is happening
+  In order to let others know what is happening
   As a User of Chatterbox
   I want to add new post
 
@@ -27,3 +27,13 @@ Feature: Add Posts
     And I press "add post"
     Then I should not see "Post was successfully added."
     And I should see "Body can't be blank"
+
+  Scenario: Adding New post with image
+    Given I am on post index page
+    And I follow "new post"
+    And I fill in "Poster" with "Fedor"
+    And I fill in "Body" with "Image Caption"
+    And I attach image "sample.jpg"
+    And I press "add post"
+    Then I should see "Post was successfully added."
+    And I should see image "sample.jpg"
