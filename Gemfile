@@ -6,6 +6,7 @@ gem 'thin'
 gem 'jquery-rails'
 gem 'pusher'
 gem "paperclip", "2.4.5"
+gem 'aws-sdk'
 
 group :test, :development do
   gem 'sqlite3'
