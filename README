@@ -1,5 +1,6 @@
 == Getting Started
 
+0. Application is deployed to Heroku: http://falling-snow-9458.herokuapp.com/
 1. I recommend to use RVM to run specs and integration tests for this application:
 * Create gemset chatterbox
 * Run bundle install
@@ -10,4 +11,4 @@
 * Ability to see posts being added without refreshing page (using WebSocket technology, works in Chrome 5 and above,
 Safari 5, uses Flash plugin for Firefox)
 5. WebSocket integration test assumes Firefox with Flash plugin is installed
-6. Application is deployed to Heroku: http://falling-snow-9458.herokuapp.com/
+
