@@ -5,7 +5,7 @@ gem 'pg'
 gem 'thin'
 gem 'jquery-rails'
 gem 'pusher'
-gem "paperclip", "~> 2.0"
+gem "paperclip", "2.4.5"
 
 group :test, :development do
   gem 'sqlite3'
