@@ -24,3 +24,4 @@ Chatterbox::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
+PAPERCLIP_STORAGE_OPTIONS = {}
